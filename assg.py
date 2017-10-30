@@ -3,10 +3,6 @@ import os.path
 from twilio.rest import Client
 
 
-# Find these values at https://twilio.com/user/account
-account_sid = "AC0037890d3482af7680de7a402c35c729"
-auth_token = "e31bdd16760272ff46b3e1a7e7194e43"
-
 client = Client(account_sid, auth_token)
 
 wb = xlrd.open_workbook(os.path.join('C:\Users\yash\Desktop', 'data.xlsx'))
@@ -32,10 +28,4 @@ for i in range(1, sh.nrows):
     max_marks = sh.cell(i, 8).value
     percentage = total*100/max_marks    
     print name
-
-    client.api.account.messages.create(
-    to="+919680019800",
-    from_="+919995902061",
-    body="Hello there!")
-
 
